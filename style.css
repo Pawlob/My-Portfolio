@@ -1,10 +1,10 @@
 :root {
-    --bg-landing: #050505;
+    --bg: #050505;
     --text: #ffffff;
-    --accent: #00f3ff;       /* Cyan */
+    --accent: #00f3ff; /* Cyan for tech feel */
     --accent-dim: rgba(0, 243, 255, 0.1);
     --purple: #bd00ff;
-    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-bg: rgba(255, 255, 255, 0.03);
     --font-main: 'Inter', sans-serif;
     --font-code: 'JetBrains Mono', monospace;
 }
@@ -13,18 +13,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
+    cursor: none; /* Hides default cursor for custom one */
 }
 
 body {
-    /* THE NEW GRADIENT BACKGROUND */
-    /* Starts with your #2c2a60 and fades to a deep dark purple/black */
-    background: linear-gradient(135deg, #2c2a60 0%, #1a0b2e 100%);
-    background-attachment: fixed; /* Keeps gradient static while scrolling for a premium feel */
+    background-color: var(--bg);
     color: var(--text);
     font-family: var(--font-main);
     overflow-x: hidden;
-    min-height: 100vh;
 }
 
 /* Custom Cursor */
@@ -57,11 +53,10 @@ body {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
-    z-index: 0; 
-    pointer-events: none;
+    z-index: -1;
 }
 
 /* Nav */
@@ -71,9 +66,6 @@ nav {
     align-items: center;
     padding: 2rem 5%;
     font-family: var(--font-code);
-    position: relative;
-    z-index: 10;
-    background: transparent;
 }
 
 .logo {
@@ -97,24 +89,18 @@ nav {
     color: var(--accent);
 }
 
-/* Hero - KEEPS THE BLACK VOID BACKGROUND */
+/* Hero */
 .hero {
     min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
-    background-color: var(--bg-landing); /* #050505 override */
-    position: relative;
-    z-index: 1;
-    border-bottom: 1px solid var(--accent-dim);
-    box-shadow: 0 10px 50px rgba(0,0,0,0.5); /* Shadow to blend into gradient below */
 }
 
 .hero-content {
     max-width: 600px;
     z-index: 2;
-    position: relative;
 }
 
 .tagline {
@@ -172,8 +158,6 @@ h1 {
     width: 200px;
     height: 200px;
     perspective: 1000px;
-    z-index: 2;
-    position: relative;
 }
 
 .cube {
@@ -214,21 +198,14 @@ h1 {
 /* Section General */
 .section {
     padding: 5rem 10%;
-    position: relative;
-    z-index: 1;
-}
-
-.section-title, .about-grid, .works-grid, .contact-box {
-    position: relative;
-    z-index: 2;
 }
 
 .section-title {
     font-family: var(--font-code);
     font-size: 1.5rem;
-    color: var(--accent);
+    color: var(--purple);
     margin-bottom: 3rem;
-    border-left: 4px solid var(--purple);
+    border-left: 4px solid var(--accent);
     padding-left: 1rem;
 }
 
@@ -245,13 +222,11 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.3s;
     transform-style: preserve-3d;
-    backdrop-filter: blur(5px);
 }
 
 .card:hover {
     border-color: var(--accent);
     transform: translateY(-10px);
-    background: rgba(44, 42, 96, 0.6); 
 }
 
 .card i {
@@ -260,7 +235,7 @@ h1 {
     margin-bottom: 1rem;
 }
 
-/* WORKS SECTION STYLES */
+/* WORKS SECTION STYLES (NEW) */
 .works-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -268,7 +243,7 @@ h1 {
 }
 
 .work-card {
-    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.3));
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.8));
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem;
     display: flex;
@@ -280,8 +255,7 @@ h1 {
 }
 
 .work-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-color: var(--purple);
 }
 
 .work-header {
@@ -318,7 +292,7 @@ h1 {
     margin-bottom: 2rem;
     font-family: var(--font-code);
     font-size: 0.8rem;
-    color: var(--accent);
+    color: var(--purple);
 }
 
 .work-link a {
@@ -333,7 +307,7 @@ h1 {
 
 .work-link a:hover {
     color: var(--accent);
-    gap: 1rem; 
+    gap: 1rem; /* Arrow slide effect */
 }
 
 /* Contact */
@@ -342,7 +316,6 @@ h1 {
     padding: 4rem;
     border: 1px dashed var(--text);
     margin-top: 2rem;
-    background: rgba(0,0,0,0.2);
 }
 
 footer {
@@ -351,15 +324,13 @@ footer {
     font-family: var(--font-code);
     font-size: 0.8rem;
     opacity: 0.5;
-    position: relative;
-    z-index: 2;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
     .hero { flex-direction: column; text-align: center; padding-top: 100px; }
     h1 { font-size: 3rem; }
-    .hero-visual { display: none; }
+    .hero-visual { display: none; } /* Hide 3D cube on mobile for performance */
     nav { flex-direction: column; gap: 1rem; }
     .links { display: flex; flex-direction: column; gap: 1rem; margin: 0;}
     .links a { margin: 0; }
