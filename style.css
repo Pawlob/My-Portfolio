@@ -4,6 +4,7 @@
     --accent: #00f3ff; /* Cyan for tech feel */
     --accent-dim: rgba(0, 243, 255, 0.1);
     --purple: #bd00ff;
+    --card-bg: rgba(255, 255, 255, 0.03);
     --font-main: 'Inter', sans-serif;
     --font-code: 'JetBrains Mono', monospace;
 }
@@ -194,7 +195,7 @@ h1 {
     to { transform: rotateX(360deg) rotateY(360deg); }
 }
 
-/* Section Styles */
+/* Section General */
 .section {
     padding: 5rem 10%;
 }
@@ -208,6 +209,7 @@ h1 {
     padding-left: 1rem;
 }
 
+/* About Grid */
 .about-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -215,7 +217,7 @@ h1 {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--card-bg);
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.3s;
@@ -233,20 +235,79 @@ h1 {
     margin-bottom: 1rem;
 }
 
-/* Lumin Section */
-.lumin-section {
-    background: linear-gradient(45deg, #050505, #1a0024);
-    border-top: 1px solid var(--purple);
-    border-bottom: 1px solid var(--purple);
+/* WORKS SECTION STYLES (NEW) */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-.tech-stack {
-    list-style: none;
+.work-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.8));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
     display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.work-card:hover {
+    border-color: var(--purple);
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.work-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.badge {
+    background: var(--accent-dim);
+    color: var(--accent);
+    padding: 4px 8px;
+    font-size: 0.7rem;
     font-family: var(--font-code);
+    border-radius: 4px;
+}
+
+.work-desc {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.tech-tags {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
     color: var(--purple);
+}
+
+.work-link a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.work-link a:hover {
+    color: var(--accent);
+    gap: 1rem; /* Arrow slide effect */
 }
 
 /* Contact */
@@ -254,6 +315,7 @@ h1 {
     text-align: center;
     padding: 4rem;
     border: 1px dashed var(--text);
+    margin-top: 2rem;
 }
 
 footer {
