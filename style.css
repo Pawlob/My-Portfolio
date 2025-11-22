@@ -1,6 +1,6 @@
 :root {
     --bg-landing: #050505;   /* The Dark Void for Landing */
-    --bg-main: #2c2a60;      /* The New Indigo for Content */
+    --bg-main: #5f5ba3;      /* The New Indigo for Content */
     --text: #ffffff;
     --accent: #00f3ff;       /* Cyan */
     --accent-dim: rgba(0, 243, 255, 0.1);
