@@ -1,11 +1,10 @@
 :root {
-    --bg-landing: #050505;   /* The Dark Void for Landing */
-    --bg-main: #5f5ba3;      /* The New Indigo for Content */
+    --bg-landing: #050505;
     --text: #ffffff;
     --accent: #00f3ff;       /* Cyan */
     --accent-dim: rgba(0, 243, 255, 0.1);
     --purple: #bd00ff;
-    --card-bg: rgba(255, 255, 255, 0.05); /* Slightly lighter for contrast on purple */
+    --card-bg: rgba(255, 255, 255, 0.05);
     --font-main: 'Inter', sans-serif;
     --font-code: 'JetBrains Mono', monospace;
 }
@@ -18,10 +17,14 @@
 }
 
 body {
-    background-color: var(--bg-main); /* Sets the global purple #2c2a60 */
+    /* THE NEW GRADIENT BACKGROUND */
+    /* Starts with your #2c2a60 and fades to a deep dark purple/black */
+    background: linear-gradient(135deg, #2c2a60 0%, #1a0b2e 100%);
+    background-attachment: fixed; /* Keeps gradient static while scrolling for a premium feel */
     color: var(--text);
     font-family: var(--font-main);
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* Custom Cursor */
@@ -49,8 +52,7 @@ body {
     transition: 0.1s;
 }
 
-/* Background Grid - UPDATED Z-INDEX */
-/* Now sits on top of background colors, but behind content */
+/* Background Grid */
 .bg-grid {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -59,7 +61,7 @@ body {
         linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     z-index: 0; 
-    pointer-events: none; /* Ensures you can click through it */
+    pointer-events: none;
 }
 
 /* Nav */
@@ -70,7 +72,7 @@ nav {
     padding: 2rem 5%;
     font-family: var(--font-code);
     position: relative;
-    z-index: 10; /* Keeps nav above everything */
+    z-index: 10;
     background: transparent;
 }
 
@@ -95,18 +97,18 @@ nav {
     color: var(--accent);
 }
 
-/* Hero - UPDATED BACKGROUND */
+/* Hero - KEEPS THE BLACK VOID BACKGROUND */
 .hero {
     min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
-    background-color: var(--bg-landing); /* Forces #050505 here */
+    background-color: var(--bg-landing); /* #050505 override */
     position: relative;
     z-index: 1;
-    /* Optional: A subtle gradient at the bottom to blend into the purple */
     border-bottom: 1px solid var(--accent-dim);
+    box-shadow: 0 10px 50px rgba(0,0,0,0.5); /* Shadow to blend into gradient below */
 }
 
 .hero-content {
@@ -118,3 +120,247 @@ nav {
 .tagline {
     font-family: var(--font-code);
     color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 0.9;
+    text-transform: uppercase;
+}
+
+.sub-glitch {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text);
+    opacity: 0.5;
+}
+
+.description {
+    margin: 2rem 0;
+    opacity: 0.8;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--accent);
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: var(--font-code);
+    margin-right: 1rem;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.btn-secondary {
+    color: var(--text);
+    text-decoration: none;
+    font-family: var(--font-code);
+    border-bottom: 1px solid var(--text);
+}
+
+/* 3D Cube CSS */
+.cube-container {
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    z-index: 2;
+    position: relative;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: spin 10s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid var(--accent);
+    background: rgba(0, 243, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-code);
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.front  { transform: rotateY(0deg) translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes spin {
+    from { transform: rotateX(0) rotateY(0); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Section General */
+.section {
+    padding: 5rem 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title, .about-grid, .works-grid, .contact-box {
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: var(--font-code);
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 3rem;
+    border-left: 4px solid var(--purple);
+    padding-left: 1rem;
+}
+
+/* About Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+    transform-style: preserve-3d;
+    backdrop-filter: blur(5px);
+}
+
+.card:hover {
+    border-color: var(--accent);
+    transform: translateY(-10px);
+    background: rgba(44, 42, 96, 0.6); 
+}
+
+.card i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+/* WORKS SECTION STYLES */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.work-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.3));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.work-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.work-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.badge {
+    background: var(--accent-dim);
+    color: var(--accent);
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    font-family: var(--font-code);
+    border-radius: 4px;
+}
+
+.work-desc {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.tech-tags {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+.work-link a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.work-link a:hover {
+    color: var(--accent);
+    gap: 1rem; 
+}
+
+/* Contact */
+.contact-box {
+    text-align: center;
+    padding: 4rem;
+    border: 1px dashed var(--text);
+    margin-top: 2rem;
+    background: rgba(0,0,0,0.2);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    opacity: 0.5;
+    position: relative;
+    z-index: 2;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+    h1 { font-size: 3rem; }
+    .hero-visual { display: none; }
+    nav { flex-direction: column; gap: 1rem; }
+    .links { display: flex; flex-direction: column; gap: 1rem; margin: 0;}
+    .links a { margin: 0; }
+}
