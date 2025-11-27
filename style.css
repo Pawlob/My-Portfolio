@@ -177,112 +177,6 @@ header {
     to { transform: rotateX(360deg) rotateY(360deg); }
 }
 
-/* --- 5. FOX CHARACTER CSS --- */
-.fox-runner {
-    position: absolute;
-    top: -50px; /* Sits on top of the cube wrapper */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 50px;
-    z-index: 20; /* Above the cube */
-    animation: foxBounce 0.4s infinite alternate;
-}
-
-/* Fox Body Parts */
-.fox-body {
-    position: absolute;
-    width: 40px;
-    height: 20px;
-    background: var(--fox-orange);
-    border-radius: 10px;
-    top: 15px;
-    left: 10px;
-}
-
-.fox-head {
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    background: var(--fox-orange);
-    border-radius: 5px;
-    top: 5px;
-    right: -5px; /* Facing right */
-}
-
-.fox-snout {
-    position: absolute;
-    width: 10px;
-    height: 8px;
-    background: var(--fox-white);
-    bottom: 0;
-    right: -2px;
-    border-radius: 2px;
-}
-
-.fox-ear {
-    position: absolute;
-    top: -8px;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 10px solid var(--fox-dark);
-}
-.fox-ear.left { left: 0; }
-.fox-ear.right { right: 0; }
-
-.fox-tail {
-    position: absolute;
-    width: 30px;
-    height: 12px;
-    background: var(--fox-orange);
-    border-radius: 10px;
-    top: 10px;
-    left: -15px;
-    transform-origin: right center;
-    animation: tailWag 0.2s infinite alternate;
-}
-.fox-tail::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 10px;
-    height: 100%;
-    background: var(--fox-white);
-    border-radius: 10px 0 0 10px;
-}
-
-/* Fox Legs */
-.fox-leg {
-    position: absolute;
-    width: 6px;
-    height: 18px;
-    background: var(--fox-dark);
-    bottom: -5px;
-    border-radius: 3px;
-    transform-origin: top center;
-}
-.leg-fl { left: 15px; animation: runLegs 0.3s infinite alternate; }
-.leg-fr { left: 20px; animation: runLegs 0.3s infinite alternate-reverse; }
-.leg-bl { left: 45px; animation: runLegs 0.3s infinite alternate; }
-.leg-br { left: 50px; animation: runLegs 0.3s infinite alternate-reverse; }
-
-@keyframes foxBounce {
-    from { transform: translateX(-50%) translateY(0); }
-    to { transform: translateX(-50%) translateY(-5px); }
-}
-
-@keyframes runLegs {
-    from { transform: rotate(-20deg); }
-    to { transform: rotate(20deg); }
-}
-
-@keyframes tailWag {
-    from { transform: rotate(-10deg); }
-    to { transform: rotate(10deg); }
-}
-
 /* --- 6. SECTIONS GENERAL --- */
 section { padding: 60px 20px; text-align: center; max-width: 1200px; margin: 0 auto; }
 h2 { font-size: 2.5rem; margin-bottom: 30px; color: var(--highlight-color); border-bottom: 2px solid var(--highlight-color); display: inline-block; }
@@ -330,12 +224,29 @@ footer { background: var(--card-bg); color: var(--primary-bg); text-align: cente
 
 /* --- 11. MEDIA QUERIES --- */
 @media(min-width: 768px) {
-    header { flex-direction: row; justify-content: space-evenly; }
-    .hero-content { text-align: left; margin-bottom: 0; align-items: flex-start; }
-    .profile-container { margin: 0 0 20px 0; }
+    header { 
+        flex-direction: row; 
+        justify-content: center; /* Changed from space-evenly to center for better control */
+        gap: 200px; /* Adds space between text and cube */
+    }
+
+    .hero-content { 
+        text-align: center; 
+        margin-bottom: 0; 
+        align-items: center; 
+        justify-content: center;
+        
+        /* --- THIS MOVES THE CONTENT TO THE RIGHT --- */
+        margin-left: 200px; /* Adjust this number to move it further/closer */
+    }
+
+    .profile-container { 
+        margin: 0 0 20px 0; 
+    }
 }
 
 @media(max-width: 768px) {
+    /* ... (Keep the rest of your mobile styles exactly the same) ... */
     .nav-links {
         position: fixed; 
         top: 0; 
@@ -348,19 +259,16 @@ footer { background: var(--card-bg); color: var(--primary-bg); text-align: cente
         transition: right 0.4s ease; 
         box-shadow: -5px 0 15px rgba(0,0,0,0.5);
         border-left: 1px solid var(--highlight-color);
-        
-        /* UPDATED FOR LARGER LINKS AND REDUCED PADDING */
-        padding: 10px; /* Reduced container padding */
-        gap: 10px;     /* Reduced gap between links */
+        padding: 10px; 
+        gap: 10px;
     }
     .nav-links.show { right: 0; }
     
-    /* MAKE LINKS LARGER */
     .nav-links a {
-        font-size: 1.4rem; /* Larger Font */
+        font-size: 1.4rem; 
         width: 100%;
         text-align: center;
-        padding: 10px 0; /* Easy to tap */
+        padding: 10px 0; 
     }
 
     .hamburger { display: flex; }
