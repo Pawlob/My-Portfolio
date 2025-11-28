@@ -68,38 +68,59 @@
             <div class="skill-category">
                 <h3>Architecture & Design</h3>
                 <div class="skill-item"><div class="skill-info"><span>AutoCAD</span><span>95%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>SketchUp</span><span>90%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div></div>
                 <div class="skill-item"><div class="skill-info"><span>Revit / BIM</span><span>90%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div></div>
                 <div class="skill-item"><div class="skill-info"><span>3D Rendering</span><span>85%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div></div>
-                <div class="skill-item"><div class="skill-info"><span>SketchUp</span><span>90%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div></div>
             </div>
             <div class="skill-category">
                 <h3>Development & Web</h3>
+                <div class="skill-item"><div class="skill-info"><span>UI/UX Design</span><span>95%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div></div>
                 <div class="skill-item"><div class="skill-info"><span>HTML / CSS</span><span>90%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div></div>
                 <div class="skill-item"><div class="skill-info"><span>JavaScript</span><span>80%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div></div>
                 <div class="skill-item"><div class="skill-info"><span>Python</span><span>75%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 75%;"></div></div></div>
-                <div class="skill-item"><div class="skill-info"><span>UI/UX Design</span><span>85%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div></div>
             </div>
         </div>
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
+        
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+            <button class="filter-btn" onclick="filterProjects('arch')">Architecture & Design</button>
+            <button class="filter-btn" onclick="filterProjects('dev')">Development & Web</button>
+        </div>
+
         <div class="projects-grid">
-            <div class="project-card tilt-card">
+            <a href="project-villa.html" class="project-card tilt-card" data-category="arch">
                 <img alt="Modern Villa" src="photo_5_2025-11-10_15-23-30.jpg" onerror="this.src='https://placehold.co/600x400/013328/ede9d6?text=Modern+Villa'"/>
                 <h3>Modern Villa</h3>
                 <p>A luxurious villa design emphasizing open spaces, sustainable materials, and natural light.</p>
-            </div>
-            <div class="project-card tilt-card">
+            </a>
+
+            <a href="project-urban.html" class="project-card tilt-card" data-category="arch">
                 <img alt="Urban Complex" src="dd15655392.png" onerror="this.src='https://placehold.co/600x400/013328/ede9d6?text=Urban+Complex'"/>
                 <h3>Urban Complex</h3>
                 <p>A mixed-use development combining residential units with commercial hubs.</p>
-            </div>
-            <div class="project-card tilt-card">
+            </a>
+
+            <a href="#" class="project-card tilt-card" data-category="arch">
                 <img alt="Interior Concept" src="placeholder.jpg" onerror="this.src='https://placehold.co/600x400/013328/ede9d6?text=Interior+Design'"/>
                 <h3>Interior Concept</h3>
                 <p>Minimalist interior design focusing on ergonomic flow and warm lighting.</p>
-            </div>
+            </a>
+
+            <a href="https://getachew-tsedeke-car-sales.42web.io/" class="project-card tilt-card" data-category="dev">
+                <img alt="ጌታቸው ፀደቀ የመኪና ሽያጭ Web Page" src="pr1.png" onerror="this.src='https://placehold.co/600x400/1e272e/ede9d6?text=Portfolio+Website'"/>
+                <h3>ጌታቸው ፀደቀ የመኪና ሽያጭ</h3>
+                <p>A fully responsive functional business website aesthetically built with companies brand colors.</p>
+            </a>
+
+            <a href="#" class="project-card tilt-card" data-category="dev">
+                <img alt="Real Estate App" src="web-project-2.jpg" onerror="this.src='https://placehold.co/600x400/1e272e/ede9d6?text=Real+Estate+App'"/>
+                <h3>Prime Rental App</h3>
+                <p>A full-stack web application for renting real estate properties with user authentication.</p>
+            </a>
         </div>
     </section>
 
@@ -117,7 +138,10 @@
                 <p><i class="fas fa-phone"></i> +251 908 786 726</p>
                 <p><i class="fas fa-envelope"></i> pawlob.21@gmail.com</p>
                 <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
-                    <div class="embed-map-responsive"><div class="embed-map-container"><iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=pawlos%20art&t=p&z=18&ie=UTF8&iwloc=B&output=embed"></iframe><a href="https://cartoongames.io" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:10px;overflow:hidden">Cartoon Network Games</a><a href="https://nickgames.io" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:10px;overflow:hidden">Nickelodeon Games</a></div><style>.embed-map-responsive{position:relative;text-align:right;width:100%;height:0;padding-bottom:66.66666666666666%;}.embed-map-container{overflow:hidden;background:none!important;width:100%;height:100%;position:absolute;top:0;left:0;}.embed-map-frame{width:100%!important;height:100%!important;position:absolute;top:0;left:0;}</style></div>
+                <div class="embed-map-responsive">
+                    <div class="embed-map-container">
+                        <iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=pawlos%20art&t=p&z=18&ie=UTF8&iwloc=B&output=embed"></iframe><a href="https://cartoongames.io" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:10px;overflow:hidden">Cartoon Network Games</a><a href="https://nickgames.io" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:10px;overflow:hidden">Nickelodeon Games</a></div><style>.embed-map-responsive{position:relative;text-align:right;width:100%;height:0;padding-bottom:66.66666666666666%;}.embed-map-container{overflow:hidden;background:none!important;width:100%;height:100%;position:absolute;top:0;left:0;}.embed-map-frame{width:100%!important;height:100%!important;position:absolute;top:0;left:0;}</style>
+                </div>
                 <div class="social-icons">
                     <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
                     <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -140,4 +164,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
