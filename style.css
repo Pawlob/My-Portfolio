@@ -196,8 +196,30 @@ h2 { font-size: 2.5rem; margin-bottom: 30px; color: var(--highlight-color); bord
 .progress-bar-fill { height: 100%; background: var(--highlight-color); width: 0; border-radius: 5px; transition: width 1.5s ease-in-out; }
 
 /* --- 8. PROJECTS --- */
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 20px; }
-.project-card { background: var(--card-bg); color: var(--text-dark); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transform-style: preserve-3d; transform: perspective(1000px); transition: transform 0.1s; }
+.projects-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+    padding: 20px; 
+}
+
+.project-card { 
+    background: var(--card-bg); 
+    color: var(--text-dark); 
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+    transform-style: preserve-3d; 
+    transform: perspective(1000px); 
+    transition: transform 0.1s; 
+    
+    /* --- NEW LINES FOR LINKS --- */
+    text-decoration: none; /* Removes the underline from links */
+    display: block;        /* Ensures the link behaves like a box */
+    cursor: pointer;       /* Shows the hand icon on hover */
+}
+
+/* Keep the rest of your card styles... */
 .project-card img { width: 100%; height: 220px; object-fit: cover; border-bottom: 4px solid var(--primary-bg); }
 .project-card h3 { margin: 15px 0 5px; color: var(--primary-bg); }
 .project-card p { padding: 0 15px 20px; color: #555; }
@@ -221,6 +243,47 @@ footer { background: var(--card-bg); color: var(--primary-bg); text-align: cente
 #backToTop svg { width: 24px; height: 24px; fill: var(--primary-bg); }
 
 @keyframes slideIn { 0% { transform: translateX(-50px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+
+/* --- NEW: PROJECT FILTER STYLES --- */
+.filter-container {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    background: transparent;
+    border: 2px solid var(--highlight-color);
+    color: var(--highlight-color);
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--highlight-color);
+    color: var(--primary-bg);
+}
+
+/* Animation for filtering */
+.project-card.hide {
+    display: none;
+}
+
+.project-card.show {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
 
 /* --- 11. MEDIA QUERIES --- */
 @media(min-width: 768px) {
