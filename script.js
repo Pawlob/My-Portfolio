@@ -33,3 +33,30 @@ window.addEventListener('scroll', () => {
         animated = true;
     }
 });
+
+/* --- PROJECT FILTER FUNCTION --- */
+function filterProjects(category) {
+    const cards = document.querySelectorAll('.project-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    // Update active button style
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.innerText.toLowerCase().includes(category === 'arch' ? 'architecture' : category === 'dev' ? 'development' : 'all')) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Filter cards
+    cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        
+        if (category === 'all' || cardCategory === category) {
+            card.classList.remove('hide');
+            card.classList.add('show');
+        } else {
+            card.classList.remove('show');
+            card.classList.add('hide');
+        }
+    });
+}
